@@ -1,14 +1,15 @@
 function getCountries() {
   $(function () {
-    $('#btnShowCountries').on('click', function () {
-      $ajax('http://localhost:8000/countries', {
-        success: function (data, status, res) {
-          console.log(res);
-          return;
-        },
-      });
+    $.ajax('http://localhost:8000/countries', {
+      success: function (data, status, res) {
+        let listCountries = data;
+        // console.log(listCountries);
+        return console.log(listCountries);
+      },
     });
   });
 }
 
-getCountries();
+$('#btnShowCountries').on('click', function () {
+  getCountries();
+});
